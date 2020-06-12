@@ -1,0 +1,23 @@
+{
+  "name": "julian-ctas",
+  "version": "1.0.0",
+  "description": "CTAS",
+  "main": "index.js",
+  "scripts": {
+		"tailwind": "tailwind build src/tailwind.css -o css/tailwind.css",
+		"stylus": "stylus -w -c --include-css stylus/style.styl -o style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balapa/julian-ctas.git"
+  },
+  "author": "Bhakti Pasaribu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/balapa/julian-ctas/issues"
+  },
+  "homepage": "https://github.com/balapa/julian-ctas#readme",
+  "dependencies": {
+    "tailwindcss": "^1.4.6"
+  }
+}

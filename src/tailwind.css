@@ -1,0 +1,9 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.button {
+	@apply text-white rounded-full inline-block shadow;
+}

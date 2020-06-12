@@ -1,0 +1,18 @@
+header
+	position sticky
+	position -webkit-sticky
+	top 0
+
+	.container
+		position relative
+		&:before
+			content ''
+			position absolute
+			left 0
+			right 0
+			bottom 0
+			height 2px
+			background #edf2f7
+
+		> .flex
+			height headerHeight

@@ -1,0 +1,1 @@
+.button{padding:8px 30px;background:#50bcbc;transition:.3s all ease;}.button:hover{background:#43aeae}header{position:sticky;position:-webkit-sticky;top:0;}header .container{position:relative;}header .container:before{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:#edf2f7}header .container > .flex{height:100px}
