@@ -6,18 +6,7 @@ module.exports = {
     function ({ addComponents }) {
       addComponents({
         '.container': {
-					marginLeft: 'auto',
-					marginRight: 'auto',
           maxWidth: '100%',
-          '@screen sm': {
-            maxWidth: '640px',
-          },
-          '@screen md': {
-            maxWidth: '768x',
-          },
-          '@screen lg': {
-            maxWidth: '1024px',
-          },
         }
       })
     }

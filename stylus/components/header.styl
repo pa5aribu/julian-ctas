@@ -1,18 +1,54 @@
-header
-	position sticky
-	position -webkit-sticky
-	top 0
-
-	.container
-		position relative
-		&:before
-			content ''
-			position absolute
-			left 0
-			right 0
-			bottom 0
-			height 2px
+#menu-sidebar-nav
+	> li > a
+		padding .5rem 1rem
+		display block
+		border-radius .5rem
+		transition .3s all ease
+		&:hover
 			background #edf2f7
 
-		> .flex
-			height headerHeight
+	> li.current-menu-item
+		> a
+			background #edf2f7
+			color terminal
+
+// header
+header
+	transition .3s all ease
+	background transparent
+
+	// states
+	&.has-bg
+		backdrop-filter saturate(180%) blur(10px)
+		background-color rgba(66, 86, 162, .5)
+
+	&:not(.has-bg).is-scrolled
+		backdrop-filter saturate(180%) blur(10px)
+		background-color rgba(66, 86, 162, .85)
+
+		// .container:before
+		// 	opacity 0
+
+	// &.has-border-bottom
+		// .container
+		// 	position relative
+		// 	&:before
+		// 		content ''
+		// 		position absolute
+		// 		left 0
+		// 		right 0
+		// 		bottom 0
+		// 		height 1px
+		// 		background #edf2f7
+		// 		transition .3s all ease
+
+	#menu-header
+		.current-menu-item
+			> a
+				color nucleus
+	
+	ul
+		a:not(.button)
+			transition .3s all ease
+			&:hover
+				color nucleus

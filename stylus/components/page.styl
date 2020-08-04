@@ -1,0 +1,78 @@
+// section
+section
+	// states
+	&.bg-overlap-header
+		position relative
+		&:before
+			content ''
+			position absolute
+			top headerHeight*-1
+			left 0
+			right 0
+			height headerHeight
+			background inherit
+			z-index -1
+
+
+
+
+
+/** post **/
+#post
+	.post-thumbnail
+		height 400px
+		object-fit cover
+
+
+
+
+/** CONTACT PAGE **/
+.gform_wrapper
+	input:not(.button),
+	textarea,
+	select
+		padding 8px 10px
+		border 1px solid #ddd
+		width 100%
+
+	.gfield:not(:last-child)
+		margin-bottom 20px
+
+	.gfield
+		label
+			margin-bottom 10px
+			display block
+
+	.gform_footer
+		margin-top 40px
+
+
+
+
+
+/** HOMEPAGE **/
+.homepage-carousel
+	display flex
+	flex-wrap wrap
+
+	.flickity-viewport
+		overflow unset
+
+	.flickity-page-dots
+		text-align left
+		margin-bottom 20px
+		.dot
+			margin 0
+			margin-right 10px
+			background white
+			transition .3s all ease
+
+	> div
+		width 100%
+		flex-basis 100%
+
+	.carousel-cell
+		width 420px
+		margin 0 10px
+		// &:not(:last-child)
+		// 	margin-right 20px

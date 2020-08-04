@@ -41,7 +41,7 @@
 
 		/* wp_enqueue_script( 'indicators', $dir . '/js/debug.addIndicators.min.js', '', false, true ); */
 		wp_enqueue_script( 'vendors', $dir . '/js/vendors.js', '', false, true );
-		wp_enqueue_script( 'js-utils', $dir . '/js/utils.js', '', false, true );
+		/* wp_enqueue_script( 'js-utils', $dir . '/js/utils.js', '', false, true ); */
 		wp_enqueue_script( 'main', $dir . '/js/main.js', '', false, true );
 	}
 
@@ -71,40 +71,11 @@
 		));
 		
 	}
-
-	function get_current_template() {
-		global $template;
-		return basename($template, '.php');
-	}
-
-	function render_img( $obj, $classes = '', $size = 'medium_large') {
-		$url = $obj[ 'sizes' ][ $size ];
-		echo '<img
-			class="' . $classes . '"	
-			src="' . $url . '"	
-			alt="' . $obj['alt'] . '"	
-		>';
-	}
-
 	// add classes to nav anchors
 	/* add_filter( 'nav_menu_link_attributes', function($atts) { */
     /* $atts['class'] = "scroll-to"; */
 	/* 	return $atts; */
 	/* }, 100, 1 ); */
-
-
-	function get_menu( $id, $post = '', $classes = '' ) {
-		wp_nav_menu( array(
-			'menu' => $id,
-			'menu_class' => 'flex'
-			) );
-	}
-
-	function clog( $data ) {
-		echo '<pre>';
-		var_dump( $data );
-		echo '</pre>';
-	}
 
 	// update admin style
 	add_action('admin_head', 'my_custom_css');

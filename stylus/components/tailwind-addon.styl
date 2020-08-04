@@ -1,0 +1,23 @@
+// variables
+tailwindBreakpoints = {
+	'sm\': 640px,
+	'md\': 768px,
+	'lg\': 1024px,
+	'xl\': 1280px
+}
+
+offsetGap = 8.333333%
+
+// offset
+for num, i in (0..12)
+	// offset
+	.offset-{num}
+		margin-left num * offsetGap
+
+for breakpoint, i in tailwindBreakpoints
+	// offset
+	.{breakpoint}:offset
+		@media( min-width: tailwindBreakpoints[breakpoint] )
+			for num, i in (0..12)
+				&-{num}
+					margin-left num * offsetGap

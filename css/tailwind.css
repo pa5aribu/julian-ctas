@@ -592,27 +592,7 @@ video {
 }
 
 .container {
-  margin-left: auto;
-  margin-right: auto;
   max-width: 100%;
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 768x;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
 }
 
 .space-y-0 > :not(template) ~ :not(template) {
@@ -18196,15 +18176,6 @@ video {
 
 .delay-1000 {
   transition-delay: 1000ms;
-}
-
-.button {
-  --text-opacity: 1;
-  color: #fff;
-  color: rgba(255, 255, 255, var(--text-opacity));
-  border-radius: 9999px;
-  display: inline-block;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 @media (min-width: 640px) {

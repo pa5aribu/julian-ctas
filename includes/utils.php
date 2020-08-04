@@ -1,19 +1,35 @@
 <?php
 
-	// make tags
-	function make_tags( $tags ) {
-		if( $tags ) :
-			$el = '<div class="card-tags">';
-				foreach( $tags as $tag ) :
-				$el .= '
-					<a href="'.home_url().'/tag/'.$tag->slug.'"
-						class="tag">'. $tag->name .'</a>';
-				endforeach;
-			$el .= '</div>';
-			return $el;
-		else :
-			return '';
-		endif;
+	function get_menu( $id, $post = '', $classes = '' ) {
+		wp_nav_menu( array(
+			'menu' => $id,
+			'menu_class' => 'flex'
+			) );
+	}
+
+	function clog( $data ) {
+		echo '<pre>';
+		var_dump( $data );
+		echo '</pre>';
+	}
+
+	function get_current_template() {
+		global $template;
+		return basename($template, '.php');
+	}
+
+	function render_img( $obj, $classes = '', $size = 'medium_large') {
+		$url = $obj[ 'sizes' ][ $size ];
+		echo '<img
+			class="' . $classes . '"	
+			src="' . $url . '"	
+			alt="' . $obj['alt'] . '"	
+		>';
+	}
+
+	function set_thumbnail_as_bg($post, $size = 'full') {
+		$thumbnail_url = get_the_post_thumbnail_url($post, $size);
+		echo 'style="background-image:url('. esc_url($thumbnail_url) .');"';
 	}
 
 	// render author
@@ -35,24 +51,29 @@
 		));
 
 		// list wrapper
-		echo '<div class="card-list flex flex-wrap -mx-4">';
+		echo '<div class="flex flex-wrap -mx-2 card-list">';
 			foreach( $items as $index=>$item ) :
+
 				$ID = $item->ID;
 				$url = get_permalink( $item->ID );
-				$thumbnail = get_the_post_thumbnail_url( $item );
 
 				/** insights & news **/
 				if( $args['post_type'] == 'post' ) :
 					$post_type = $item->post_type;
 				?>
 
-				<div class="w-1/3 px-4 mb-8">
-					<div class="card">
-						<a href="<?php echo $url ?>">
-							<img class="w-full" src="<?php echo $thumbnail ?>" alt="<?php echo $item->post_title ?>">
+				<div class="px-2">
+					<div class="flex flex-row-reverse h-full p-5 text-gray-700 bg-white rounded-lg card">
+						<a class="w-40" href="<?php echo $url ?>">
+							<?php
+								echo get_the_post_thumbnail( $item, 'post-thumbnail', array(
+									'class' => 'w-full h-56 block object-cover rounded-lg'
+								));
+							?>
 						</a>
-						<a href="<?php echo $url ?>">
-							<div class="card-title mt-4"><?php echo $item->post_title ?></div>
+						<a href="<?php echo $url ?>" class="block w-48 mr-6">
+							<div class="mb-3 text-sm uppercase"><?php echo get_the_date() ?></div>
+							<div class="text-xl"><?php echo $item->post_title ?></div>
 						</a>
 					</div>
 				</div>

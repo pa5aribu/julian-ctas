@@ -7,17 +7,12 @@
 ?>
 
 <!-- home -->
-<section id="home" class="py-20 bg-gray-100 leading-loose">
+<section id="home" class="pt-16 mt-20 bg-overlap-header">
 	<div class="container">
-		<div class="flex">
-			<div class="w-2/3">
-				<h1 class="mb-4 text-3xl font-bold">College Tuition Advisory Services</h1>
-				<p>Clear, objective information to help you navigate the complex world of modern college costs.
-				Helping students and parents know the true cost of obtaining the college degree and make sound financial choices.
-				Financial analytics for colleges, industry professionals and researches.</p>
-				<div class="button-wrapper mt-10">
-					<a class="button" href="">Read Free Reports</a>
-				</div>
+		<div class="lg:w-10/12">
+			<h2 class="mb-10 section-title"><?php the_field('hero_title') ?></h2>
+			<div class="space-y-3 lg:w-10/12">
+				<?php the_field('hero_description') ?>
 			</div>
 		</div>
 	</div>
@@ -25,14 +20,43 @@
 <!-- home ends -->
 
 <!-- blog posts -->
-<section id="posts" class="py-20">
+<section id="posts" class="py-20 mb-16 overflow-hidden">
 	<div class="container">
-		<h2 class="text-2xl font-bold mb-8">Blog Posts</h2>
 		<?php
-			render_posts( array(
+			$items = get_posts(array(
 				'post_type' => 'post',
-				'posts_length' => 6
-			));
+				'orderby' => 'menu_order',
+				'order' => 'ASC',
+				'posts_per_page' => 6
+			));		
+
+			echo '<div class="carousel homepage-carousel focus:outline-none">';
+				foreach( $items as $index=>$item ) :
+
+					$ID = $item->ID;
+					$url = get_permalink( $item->ID );
+
+				?>
+
+					<div class="carousel-cell">
+						<div class="flex flex-row-reverse h-full p-5 text-gray-700 bg-white rounded-lg card">
+							<a class="w-48" href="<?php echo $url ?>">
+								<?php
+									echo get_the_post_thumbnail( $item, 'post-thumbnail', array(
+										'class' => 'w-full h-56 block object-cover rounded-lg'
+									));
+								?>
+							</a>
+							<a href="<?php echo $url ?>" class="block w-48 mr-6">
+								<div class="mb-2 text-xs uppercase opacity-75"><?php echo get_the_date() ?></div>
+								<div class="text-xl font-semibold"><?php echo $item->post_title ?></div>
+							</a>
+						</div>
+					</div>
+
+					<?php
+				endforeach;
+			echo '</div>';
 		?>
 	</div>
 </section>

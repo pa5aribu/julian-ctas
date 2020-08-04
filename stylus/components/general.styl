@@ -1,0 +1,91 @@
+html
+	font-size 16px
+
+body
+	color terminal
+	&:before
+		// content ''
+		position fixed
+		top 16rem
+		height 1px
+		left 0
+		width 100%
+		background nucleus
+		z-index 2
+
+.container
+	+above(md)
+		margin-left 6vw
+		margin-right 6vw
+
+.main-flex
+	aside
+		min-width navWidth
+		.nav-inner
+			width navWidth
+			box-sizing border-box
+
+	#content
+		background linear-gradient(to bottom, nodal, nucleus)
+		background-attachment fixed
+
+section
+	.section-label
+		font-size 1.125rem
+		line-height 1.75
+		text-transform uppercase
+	.section-title
+		line-height 1.25
+		font-weight 500
+		font-size 1.875rem
+
+
+
+
+// button
+.button
+	letter-spacing 1px
+	padding 9px 20px
+	transition .3s all ease
+	text-transform uppercase
+	border-radius 50px
+	font-size .75rem
+	line-height 1
+	display inline-flex
+	transition .3s all ease
+	align-items center
+
+	&.is-ghost
+		border-width 1px
+		border-style solid
+
+	&.is-lg
+		padding 14px 30px
+		font-size 1rem
+
+	&.border-white
+		&:hover
+			background white
+
+
+
+// carousel
+.carousel
+	.flickity-page-dots
+		order -1
+		position relative
+		bottom unset
+
+
+
+// h screen
+.h-screen-header
+	+above(md)
+		min-height calc(100vh - 5rem)
+
+.bg-blend
+	background-position center center
+	background-size cover
+	position relative
+	background-color nodal
+	background-blend-mode multiply
