@@ -7,7 +7,7 @@
 ?>
 
 <!-- home -->
-<section id="contact" class="h-screen -mt-20 bg-blend" <?php set_thumbnail_as_bg($post) ?>>
+<section id="contact" class="h-screen -mt-20 footer-absolute bg-blend" <?php set_thumbnail_as_bg($post) ?>>
 	<div class="container pt-16">
 		<h2 class="mt-40 mb-8 section-title"><?php the_field('hero_title') ?></h2>
 		<div class="mb-8 text-lg space-y-3 lg:w-10/12">

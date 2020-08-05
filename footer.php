@@ -1,5 +1,5 @@
 				<!-- footer -->
-				<footer class="absolute bottom-0 left-0 right-0">
+				<footer class="bottom-0 left-0 right-0 font-normal">
 					<div class="container">
 						<hr class="opacity-25" />
 						<ul class="flex items-center justify-between h-16 text-xs text-white text-opacity-75">

@@ -10,7 +10,7 @@
 			wp_head();
 		?>
 
-		<title><?php echo $post->post_title ?></title>
+		<title><?php echo 'CTAS | ' . $post->post_title ?></title>
 
 		<link rel="icon" href="<?php echo $baseURL ?>/img/favicon.png" type="image/x-icon" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -29,39 +29,65 @@
 		?>
 	</head>
 
-	<body class="leading-normal">
+	<body class="font-light leading-normal font-body">
 
-		<div class="flex main-flex">
+		<div class="md:flex main-flex">
 
 			<!-- header -->
-			<aside class="bg-white">
-				<div class="fixed top-0 left-0 h-full px-16 py-16 overflow-scroll nav-inner">
-					<a class="block h-24 mb-20 logo" href="<?php echo home_url() ?>">
-						<img class="block h-full" 
-							src="<?php echo $baseURL ?>/img/logo-alt.svg" alt="<?php bloginfo('name') ?>">
-					</a>
+			<aside class="sticky top-0 z-20 font-normal bg-white md:relative">
+				<div class="top-0 left-0 overflow-scroll md:h-full md:fixed md:p-16 nav-inner">
 
-					<div class="relative transform translate-y-px login-wrapper content-line">
-						<a class="inline-flex items-center text-xs font-bold tracking-widest uppercase" 
-							href="/login">
-							Log in
-							<img class="ml-2" src="<?php bloginfo('template_url') ?>/img/icons/login.svg" />
+					<!-- top -->
+					<div class="flex items-center h-20 aside-top md:block mobile-padding md:h-auto">
+						<a class="inline-block md:mb-20 md:h-24 logo" href="<?php echo home_url() ?>">
+							<img class="hidden block h-full md:block" 
+								src="<?php echo $baseURL ?>/img/logo-alt.svg" alt="<?php bloginfo('name') ?>">
+								<img class="block w-32 md:hidden" 
+								src="<?php echo $baseURL ?>/img/logo.svg" alt="<?php bloginfo('name') ?>">
 						</a>
+
+						<div class="ml-auto login-wrapper content-line">
+							<a class="inline-flex items-center text-xs font-bold tracking-widest uppercase" 
+								href="/login">
+								Log in
+								<img class="ml-2" src="<?php bloginfo('template_url') ?>/img/icons/login.svg" />
+							</a>
+						</div>
+
+						<div class="block ml-4 md:hidden burger-menu">
+							<div class="bar bg-green-dark"></div>
+							<div class="bar bg-green-dark"></div>
+							<div class="bar bg-green-dark"></div>
+						</div>
 					</div>
 
+					<!-- aside bottom -->
+					<div class="hidden aside-bottom md:block">
 						<?php
+							wp_nav_menu( array(
+								'menu' => 'Header',
+								'container' => 'ul',
+								'menu_class' => 'mobile-padding flex md:hidden justify-around text-sm bg-gray-200 pt-2 py-3'
+							) );
+
 							wp_nav_menu( array(
 								'menu' => 'Sidebar Nav',
 								'container' => 'ul',
-								'menu_class' => 'mt-8 mb-16 -mx-4 text-gray-600 space-y-1'
+								'menu_class' => 'my-6 md:mb-16 mobile-padding md:-mx-4 text-gray-600 space-y-1 text-center md:text-left'
 							) )
 						?>
 
-					<div class="signup-wrapper">
-						<h3 class="mb-2 text-lg font-bold">Sign up today</h3>
-						<p class="mb-3 text-sm opacity-75 lg:w-3/4">Get the clarity of insight from expert sources</p>
-						<a href="/join" class="button hover:text-white hover:bg-nodal is-ghost border-nodal text-nodal">join</a>
+						<div class="block md:hidden separator mobile-padding">
+							<hr />
+						</div>
+
+						<div class="py-5 text-center mobile-padding md:py-0 md:bg-transparent signup-wrapper md:text-left">
+							<h3 class="mb-2 text-lg font-bold font-display">Sign up today</h3>
+							<p class="mb-3 text-sm opacity-75">Get the clarity of insight from expert sources</p>
+							<a href="/join" class="button hover:text-white hover:bg-nodal is-ghost border-nodal text-nodal">join</a>
+						</div>
 					</div>
+
 				</div>
 			</aside>
 
@@ -74,7 +100,7 @@
 						$header_class = '';
 					}
 				?>
-				<header class="sticky top-0 z-10 <?php echo $header_class ?>">
+				<header class="hidden md:block sticky font-normal top-0 z-10 <?php echo $header_class ?>">
 					<div class="container">
 
 						<div class="flex items-center justify-end h-20">
@@ -82,11 +108,11 @@
 								wp_nav_menu( array(
 									'menu' => 'Header',
 									'container' => 'ul',
-									'menu_class' => 'flex space-x-8 text-sm'
+									'menu_class' => 'flex space-x-5 lg:space-x-8 text-sm'
 								) )
 							?>
 
-							<ul class="flex items-center ml-8 text-sm space-x-8">
+							<ul class="flex items-center ml-8 text-sm space-x-5 lg:space-x-8">
 								<li class="w-px h-8 bg-white opacity-25 separator"></li>
 								<li>
 								<a class="block" href="/join">Join</a>

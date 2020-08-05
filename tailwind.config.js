@@ -18,6 +18,10 @@ module.exports = {
 				'nucleus': '#50BCBC',
 				'terminal': '#103643'
 			}
+		},
+		fontFamily: {
+			'display': ['Merriweather', 'serif'],
+			'body': ['Lato', 'sans-serif'],
 		}
 	}
 }

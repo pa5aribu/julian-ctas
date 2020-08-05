@@ -7,7 +7,7 @@
 ?>
 
 <!-- home -->
-<section id="home" class="pt-16 mt-20 bg-overlap-header">
+<section id="home" class="pt-16 md:mt-20 bg-overlap-header">
 	<div class="container">
 		<div class="lg:w-10/12">
 			<h2 class="mb-10 section-title"><?php the_field('hero_title') ?></h2>
@@ -20,7 +20,7 @@
 <!-- home ends -->
 
 <!-- blog posts -->
-<section id="posts" class="py-20 mb-16 overflow-hidden">
+<section id="posts" class="py-20 overflow-hidden">
 	<div class="container">
 		<?php
 			$items = get_posts(array(
@@ -48,8 +48,8 @@
 								?>
 							</a>
 							<a href="<?php echo $url ?>" class="block w-48 mr-6">
-								<div class="mb-2 text-xs uppercase opacity-75"><?php echo get_the_date() ?></div>
-								<div class="text-xl font-semibold"><?php echo $item->post_title ?></div>
+								<div class="mb-2 text-xs tracking-wider uppercase opacity-75"><?php echo get_the_date() ?></div>
+								<div class="text-xl font-semibold font-display"><?php echo $item->post_title ?></div>
 							</a>
 						</div>
 					</div>

@@ -3,6 +3,8 @@ html
 
 body
 	color terminal
+	background linear-gradient(to bottom, nodal, nucleus)
+	background-attachment fixed
 	&:before
 		// content ''
 		position fixed
@@ -13,31 +15,59 @@ body
 		background nucleus
 		z-index 2
 
+p
+	a
+		text-decoration underline
+
+.mobile-padding
+	+below(md)
+		padding-left mobilePadding
+		padding-right mobilePadding
+
+containerGap = 6.5vw
 .container
 	+above(md)
-		margin-left 6vw
-		margin-right 6vw
+		margin-left containerGap
+		margin-right containerGap
+	+below(md)
+		padding-left mobilePadding
+		padding-right mobilePadding
 
 .main-flex
-	aside
-		min-width navWidth
-		.nav-inner
-			width navWidth
-			box-sizing border-box
-
 	#content
-		background linear-gradient(to bottom, nodal, nucleus)
 		background-attachment fixed
+
+	+above(md)
+		aside
+			min-width navWidth[0]
+			.nav-inner
+				width navWidth[0]
+				box-sizing border-box
+
+	+between(768px, 950px, true)
+		aside
+			min-width navWidth[1]
+			.nav-inner
+				width navWidth[1]
 
 section
 	.section-label
-		font-size 1.125rem
-		line-height 1.75
+		font-size 0.875rem
+		letter-spacing 2px
+		line-height 2.35
 		text-transform uppercase
 	.section-title
-		line-height 1.25
-		font-weight 500
+		position relative
+		top -2px
+		line-height 1.35
 		font-size 1.875rem
+		font-family fontDisplay
+
+.bg-nodal + footer
+	background nodal
+
+.footer-absolute + footer
+	position absolute
 
 
 
@@ -51,9 +81,9 @@ section
 	border-radius 50px
 	font-size .75rem
 	line-height 1
-	display inline-flex
 	transition .3s all ease
 	align-items center
+	display inline-flex
 
 	&.is-ghost
 		border-width 1px
@@ -62,10 +92,16 @@ section
 	&.is-lg
 		padding 14px 30px
 		font-size 1rem
+		font-weight 400
 
 	&.border-white
 		&:hover
 			background white
+
+	&.border-terminal
+		&:hover
+			background terminal
+			color white
 
 
 

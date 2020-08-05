@@ -1,7 +1,13 @@
 /** on load **/
 window.onload = function() {
 
-	var header = document.querySelector('header');
+	const header = document.querySelector('header');
+	const aside = document.querySelector('aside');
+	const burgerMenu = document.querySelector('.burger-menu');
+
+	burgerMenu.onclick = () => {
+		aside.classList.toggle('is-active');
+	}
 
 	headerInteraction();
 	function headerInteraction() {

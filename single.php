@@ -11,7 +11,7 @@
 			while( have_posts() ) : the_post(); ?>
 
 				<!-- post content-->
-				<section id="post" class="pt-8 pb-20 mb-16">
+				<section id="post" class="pt-8 pb-20">
 
 					<div class="container">
 
@@ -31,12 +31,12 @@
 							<div class="lg:w-3/4">
 
 								<div class="post-detail">
-									<h3 class="mb-4 text-3xl font-bold post-title"><?php the_title() ?></h3>
+									<h3 class="mb-4 text-3xl font-bold font-display"><?php the_title() ?></h3>
 
 									<div class="flex items-center post-info">
 										<div class="w-12 h-12 mr-5 bg-gray-400 rounded-full img-fake"></div>
 										<div>
-											<a class="inline-block post-author">By <?php echo get_the_author() ?></a>
+											<a class="inline-block font-normal post-author">By <?php echo get_the_author() ?></a>
 											<div class="text-sm opacity-75 post-date"><?php the_date() ?></div>
 										</div>
 									</div>
