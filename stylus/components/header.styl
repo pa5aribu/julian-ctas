@@ -14,6 +14,12 @@
 			font-weight 700
 			color terminal
 
+#menu-header,
+#menu-header-1
+	.current-menu-item
+		> a
+			color nucleus
+
 // aside
 aside
 	&.is-active
@@ -42,11 +48,6 @@ header
 		backdrop-filter saturate(180%) blur(10px)
 		background-color rgba(66, 86, 162, .85)
 
-	#menu-header
-		.current-menu-item
-			> a
-				color nucleus
-	
 	ul
 		a:not(.button)
 			transition .3s all ease

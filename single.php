@@ -11,11 +11,11 @@
 			while( have_posts() ) : the_post(); ?>
 
 				<!-- post content-->
-				<section id="post" class="pt-8 pb-20">
+				<section id="post" class="pb-12 md:pb-20">
 
 					<div class="container">
 
-						<div class="mx-auto mb-8 post-thumbnail-wrapper">
+						<div class="mx-auto mt-10 mb-6 md:my-8 post-thumbnail-wrapper">
 							<?php
 								echo get_the_post_thumbnail( $post, 'large', array(
 									'class' => 'post-thumbnail w-full rounded-lg'
@@ -31,7 +31,7 @@
 							<div class="lg:w-3/4">
 
 								<div class="post-detail">
-									<h3 class="mb-4 text-3xl font-bold font-display"><?php the_title() ?></h3>
+									<h3 class="mb-4 text-2xl font-bold md:text-3xl font-display"><?php the_title() ?></h3>
 
 									<div class="flex items-center post-info">
 										<div class="w-12 h-12 mr-5 bg-gray-400 rounded-full img-fake"></div>

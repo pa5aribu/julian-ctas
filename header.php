@@ -34,7 +34,7 @@
 		<div class="md:flex main-flex">
 
 			<!-- header -->
-			<aside class="sticky top-0 z-20 font-normal bg-white md:relative">
+			<aside class="sticky top-0 z-20 font-normal bg-white md:z-auto md:relative">
 				<div class="top-0 left-0 overflow-scroll md:h-full md:fixed md:p-16 nav-inner">
 
 					<!-- top -->
@@ -67,7 +67,7 @@
 							wp_nav_menu( array(
 								'menu' => 'Header',
 								'container' => 'ul',
-								'menu_class' => 'mobile-padding flex md:hidden justify-around text-sm bg-gray-200 pt-2 py-3'
+								'menu_class' => 'mobile-padding flex md:hidden justify-evenly text-sm bg-gray-200 pt-2 py-3'
 							) );
 
 							wp_nav_menu( array(

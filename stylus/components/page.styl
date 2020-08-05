@@ -23,6 +23,10 @@ section
 		height 400px
 		object-fit cover
 
+	+below(md)
+		.post-thumbnail
+			height 200px
+
 
 
 
@@ -74,8 +78,10 @@ section
 	.carousel-cell
 		width 420px
 		margin 0 10px
-		// &:not(:last-child)
-		// 	margin-right 20px
+
+	+below(md)
+		.carousel-cell
+			width 92%
 
 
 

@@ -20,7 +20,7 @@
 <!-- home ends -->
 
 <!-- blog posts -->
-<section id="posts" class="py-20 overflow-hidden">
+<section id="posts" class="py-16 overflow-hidden md:py-20">
 	<div class="container">
 		<?php
 			$items = get_posts(array(
@@ -39,17 +39,17 @@
 				?>
 
 					<div class="carousel-cell">
-						<div class="flex flex-row-reverse h-full p-5 text-gray-700 bg-white rounded-lg card">
-							<a class="w-48" href="<?php echo $url ?>">
+						<div class="flex flex-row-reverse h-full p-3 text-gray-700 bg-white rounded-lg md:p-5 card">
+							<a class="w-1/2" href="<?php echo $url ?>">
 								<?php
 									echo get_the_post_thumbnail( $item, 'post-thumbnail', array(
-										'class' => 'w-full h-56 block object-cover rounded-lg'
+										'class' => 'w-full h-48 md:h-56 block object-cover rounded-lg'
 									));
 								?>
 							</a>
-							<a href="<?php echo $url ?>" class="block w-48 mr-6">
+							<a href="<?php echo $url ?>" class="block w-1/2 pr-4">
 								<div class="mb-2 text-xs tracking-wider uppercase opacity-75"><?php echo get_the_date() ?></div>
-								<div class="text-xl font-semibold font-display"><?php echo $item->post_title ?></div>
+								<div class="font-semibold md:text-xl font-display"><?php echo $item->post_title ?></div>
 							</a>
 						</div>
 					</div>

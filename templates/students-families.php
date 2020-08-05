@@ -11,9 +11,9 @@
 	<div class="container">
 		<div class="flex">
 			<div class="lg:w-11/12">
-				<h3 class="mb-16 section-label"><?php echo $post->post_title ?></h3>
+				<h3 class="mb-8 md:mb-16 section-label"><?php echo $post->post_title ?></h3>
 				<h2 class="mb-10 font-bold section-title"><?php the_field('hero_title') ?></h2>
-				<div class="text-xl font-light space-y-5 lg:w-10/12">
+				<div class="font-light lg:text-xl space-y-4 md:space-y-5 lg:w-10/12">
 					<?php the_field('hero_description') ?>
 				</div>
 				<div class="relative mt-16 hero-images">
@@ -50,21 +50,27 @@
 		$button_url = get_permalink($button['url']);
 
 		echo '<a class="font-bold border-terminal button is-ghost"
-			href="'. $button_url .'">'. $button['label'] .'</a>';
+			href="'. $button_url .'">'. $button['label'] .'
+			<img class="ml-2" src="'. get_bloginfo('template_url') .'/img/icons/arrow-right.svg" />
+		</a>';
 	}
 ?>
-<section id="reports" class="pt-20 bg-gray-200 text-terminal">
-	<div class="container py-24">
-		<h2 class="mb-16 section-title"><?php the_field('reports_title') ?></h2>
+<section id="reports" class="pt-16 bg-gray-200 md:pt-20 text-terminal">
+	<div class="container py-16 md:py-24">
+		<h2 class="mb-12 md:mb-16 section-title"><?php the_field('reports_title') ?></h2>
 		<div class="lg:w-11/12">
 			<!-- list -->
-			<div class="flex justify-between">
-				<div class="w-5/12">
+			<div class="justify-between block lg:flex">
+				<div class="lg:w-5/12">
 					<?php render_report('reports_left') ?>
 				</div>
-				<div class="w-px bg-gray-300 separator"></div>
-				<div class="w-5/12">
+				<div class="w-full h-px my-10 bg-gray-400 lg:my-0 lg:w-px lg:h-auto separator"></div>
+				<div class="lg:w-5/12">
 					<?php render_report('reports_right') ?>
+					<p class="mt-4">
+						<a class="mt-4 text-nucleus" href="<?php bloginfo('template_url') . '/join' ?>">Sign up today</a> 
+						for more specific detail.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -74,14 +80,14 @@
 
 <!-- download -->
 <section id="download" class="bg-nodal">
-<div class="container py-12">
-	<div class="flex items-center justify-center">
-		<div class="md:w-4/12">
+<div class="container py-16 md:py-12">
+	<div class="items-center justify-around md:flex lg:justify-center">
+		<div class="mb-8 md:w-4/12 md:mb-0">
 			<?php
-				render_img(get_field('download_image'), 'block w-full');
+				render_img(get_field('download_image'), 'block w-3/4 mx-auto md:w-full');
 			?>
 		</div>
-		<div class="md:w-4/12 md:offset-1">
+		<div class="w-full md:w-5/12 lg:w-4/12 lg:offset-1">
 			<div class="mb-1 text-xl font-bold font-display"><?php the_field('download_title') ?></div>
 			<div class="mb-8 space-y-4">
 				<?php the_field('download_description') ?>
@@ -89,7 +95,7 @@
 			<a class="inline-flex items-center text-xl border-white hover:text-nucleus button is-ghost is-lg" 
 				href="">
 				download
-				<img class="w-4 ml-2" src="<?php bloginfo('template_url') ?>/img/icons/login.svg" />
+				<img class="w-3 ml-2" src="<?php bloginfo('template_url') ?>/img/icons/download.svg" />
 			</a>
 		</div>
 	</div>
