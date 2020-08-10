@@ -6,8 +6,8 @@
 	// disable editor on pages
 	function disable_editor_pages() {
 		$post_types = array(
-			'page',
-			'projects'
+			// 'page',
+			// 'projects'
 		);
 
 		foreach( $post_types as $post_type ) :
@@ -25,7 +25,7 @@
 	/* } */
 
 	// disable admin bar
-	show_admin_bar(false);
+	// show_admin_bar(false);
 
 	// add menu
 	add_theme_support( 'menus' );
@@ -91,7 +91,7 @@
 
 	// limit excerpt length
 	function custom_excerpt_length( $length ) {
-		return 20;
+		return 10;
 	}
 	add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 	function wpdocs_excerpt_more( $more ) {
@@ -264,6 +264,7 @@
 
 
 
+	/*
 	if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
 
 	function my_jquery_enqueue() {
@@ -272,3 +273,4 @@
 		wp_register_script('jquery', $dir . '/js/jquery.min.js', false, null);
 		wp_enqueue_script('jquery');
 	}
+	*/

@@ -22,6 +22,23 @@ window.onload = function() {
 		headerInteraction();
 	});
 
+	/** window on resize **/
+	window.addEventListener('resize', function() {
+		makeSquares();
+	});
+
+
+
+	/** make elements square **/
+	makeSquares();
+	function makeSquares() {
+		var squares = document.querySelectorAll('.square');
+		if(squares) {
+			gsap.utils.toArray(squares).forEach(function(square) {
+				square.style.height = square.clientWidth + 'px';
+			})
+		}
+	}
 
 
 

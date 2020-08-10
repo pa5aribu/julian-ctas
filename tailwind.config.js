@@ -23,5 +23,9 @@ module.exports = {
 			'display': ['Merriweather', 'serif'],
 			'body': ['Lato', 'sans-serif'],
 		}
-	}
+	},
+  variants: {
+    textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+    backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
+  },
 }

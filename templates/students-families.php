@@ -93,7 +93,7 @@
 				<?php the_field('download_description') ?>
 			</div>
 			<a class="inline-flex items-center text-xl border-white hover:text-nucleus button is-ghost is-lg" 
-				href="">
+				href="<?php echo get_field('download_file') ?>">
 				download
 				<img class="w-3 ml-2" src="<?php bloginfo('template_url') ?>/img/icons/download.svg" />
 			</a>

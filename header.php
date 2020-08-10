@@ -73,7 +73,7 @@
 							wp_nav_menu( array(
 								'menu' => 'Sidebar Nav',
 								'container' => 'ul',
-								'menu_class' => 'my-6 md:mb-16 mobile-padding md:-mx-4 text-gray-600 space-y-1 text-center md:text-left'
+								'menu_class' => 'my-6 md:mb-16 md:mt-12 mobile-padding md:-mx-4 text-gray-600 space-y-1 text-center md:text-left'
 							) )
 						?>
 

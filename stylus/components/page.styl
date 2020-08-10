@@ -13,6 +13,22 @@ section
 			background inherit
 			z-index -1
 
+	.big-circle
+		width 620px
+		transform translate(-15%, 30%)
+
+	+below(lg)
+		.big-circle
+			transform translate(-15%, 40%)
+
+	+between(480px, 768px, true)
+		.big-circle
+			width 70%
+
+	+below(480px, true)
+		.big-circle
+			width 80%
+			transform translate(-30%,5%)
 
 
 
@@ -94,3 +110,14 @@ section
 		.fg
 			top 70px
 			right 100px
+
+
+
+/** JOIN**/
+#join
+	background #103643
+
+// form wrapper
+.form-wrapper
+	input
+		color terminal

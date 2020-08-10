@@ -94,6 +94,10 @@ section
 		border-width 1px
 		border-style solid
 
+	&.is-sm
+		font-size .7rem
+		padding 8px 18px
+
 	&.is-lg
 		padding 14px 30px
 		font-size 1rem
@@ -130,3 +134,42 @@ section
 	position relative
 	background-color nodal
 	background-blend-mode multiply
+
+
+
+
+// join plans
+.plans
+	.plan
+		display inline-flex
+		position relative
+		&:before
+			content ''
+			display block
+			square(20px)
+			minSquare(20px)
+			border-radius 50%
+			margin-right 20px
+			background rgba(255,255,255,.25)
+			position relative
+			top 4px
+		&:after
+			content ''
+			position absolute
+			top 9px
+			left 5px
+			square(10px)
+			border-radius 50%
+			display block
+			background nucleus
+			opacity 0
+			transition .3s all ease
+
+		&.is-active
+			color nucleus
+			&:after
+				opacity 1
+
+// rounded xl
+.rounded-xl
+	border-radius 50px
