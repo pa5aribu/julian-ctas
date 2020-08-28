@@ -39,19 +39,36 @@
 
 					<!-- top -->
 					<div class="flex items-center h-20 aside-top md:block mobile-padding md:h-auto">
-						<a class="inline-block md:mb-20 md:h-24 logo" href="<?php echo home_url() ?>">
+						<a class="inline-block md:h-24 logo" href="<?php echo home_url() ?>">
 							<img class="hidden block h-full md:block" 
 								src="<?php echo $baseURL ?>/img/logo-alt.svg" alt="<?php bloginfo('name') ?>">
 								<img class="block w-32 md:hidden" 
 								src="<?php echo $baseURL ?>/img/logo.svg" alt="<?php bloginfo('name') ?>">
 						</a>
 
-						<div class="ml-auto login-wrapper content-line">
-							<a class="inline-flex items-center text-xs font-bold tracking-widest uppercase" 
-								href="/login">
-								Log in
-								<img class="ml-2" src="<?php bloginfo('template_url') ?>/img/icons/login.svg" />
-							</a>
+
+						<div class="ml-auto md:mt-20 login-wrapper content-line">
+						<?php
+							echo do_shortcode('
+								[not_logged_in]
+										<a class="inline-flex items-center text-xs font-bold tracking-widest uppercase" 
+											href="/login">
+											Log in
+											<img class="ml-2" src="'. get_bloginfo('template_url') .'/img/icons/login.svg" />
+										</a>
+								[/not_logged_in]
+							');
+
+							if(is_user_logged_in()) {
+								echo '
+									<a class="inline-flex items-center text-xs font-bold tracking-widest uppercase" 
+										href="'. wp_logout_url() .'">
+										logout
+										<img class="ml-2" src="'. get_bloginfo('template_url') .'/img/icons/login.svg" />
+									</a>
+								';
+							}
+						?>
 						</div>
 
 						<div class="block ml-4 md:hidden burger-menu">
@@ -62,7 +79,7 @@
 					</div>
 
 					<!-- aside bottom -->
-					<div class="hidden aside-bottom md:block">
+					<div class="hidden aside-bottom md:block md:mt-16">
 						<?php
 							wp_nav_menu( array(
 								'menu' => 'Header',
@@ -73,19 +90,26 @@
 							wp_nav_menu( array(
 								'menu' => 'Sidebar Nav',
 								'container' => 'ul',
-								'menu_class' => 'my-6 md:mb-16 md:mt-12 mobile-padding md:-mx-4 text-gray-600 space-y-1 text-center md:text-left'
+								'menu_class' => 'mb-6 md:mb-16 mobile-padding md:-mx-4 text-gray-600 space-y-1 text-center md:text-left'
 							) )
 						?>
 
-						<div class="block md:hidden separator mobile-padding">
-							<hr />
-						</div>
+						<?php
+							echo do_shortcode('
+								[not_logged_in]
+									<div class="block md:hidden separator mobile-padding">
+										<hr />
+									</div>
 
-						<div class="py-5 text-center mobile-padding md:py-0 md:bg-transparent signup-wrapper md:text-left">
-							<h3 class="mb-2 text-lg font-bold font-display">Sign up today</h3>
-							<p class="mb-3 text-sm opacity-75">Get the clarity of insight from expert sources</p>
-							<a href="/join" class="button hover:text-white hover:bg-nodal is-ghost border-nodal text-nodal">join</a>
-						</div>
+									<div class="py-5 text-center mobile-padding md:py-0 md:bg-transparent signup-wrapper md:text-left">
+										<h3 class="mb-2 text-lg font-bold font-display">Sign up today</h3>
+										<p class="mb-3 text-sm opacity-75">Get the clarity of insight from expert sources</p>
+										<a href="/join" class="button hover:text-white hover:bg-nodal is-ghost border-nodal text-nodal">join</a>
+									</div>
+								[/not_logged_in]
+							');
+						?>
+
 					</div>
 
 				</div>
@@ -114,16 +138,28 @@
 
 							<ul class="flex items-center ml-8 text-sm space-x-5 lg:space-x-8">
 								<li class="w-px h-8 bg-white opacity-25 separator"></li>
-								<li>
-								<a class="block" href="/join">Join</a>
-								</li>
-								<li>
-									<a href="/login" class="text-white border-white button hover:text-nucleus is-ghost">
-										log in
-										<img class="ml-2" src="<?php bloginfo('template_url') ?>/img/icons/login.svg" />
-									</a>
-								</li>
+
+							<?php
+								echo do_shortcode('
+									[not_logged_in]
+										<li>
+											<a class="block" href="/join">Join</a>
+										</li>
+										<li>
+											<a href="/login" class="text-white border-white button hover:text-nucleus is-ghost">
+												log in
+												<img class="ml-2" src="'. get_bloginfo('template_url') .'/img/icons/login.svg" />
+											</a>
+										</li>
+									[/not_logged_in]');
+
+								if(is_user_logged_in()) {
+									echo '<li><a href="'. wp_logout_url() .'">Logout</a></li>';
+								}
+							?>
+
 							</ul>
+
 						</div>
 
 					</div>

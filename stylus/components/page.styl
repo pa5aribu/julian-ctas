@@ -117,7 +117,166 @@ section
 #join
 	background #103643
 
-// form wrapper
-.form-wrapper
+.bg-dark
+	background #103643
+
+#blank
 	input
+		color terminal !important
+
+
+
+
+// register form
+#register-form
+	position relative
+
+	.rcp_header
+		display none
+		
+	.rcp_subscription_fieldset .rcp_subscription_message,
+	.rcp_login_link
+			line-height 1.35
+			font-size 1.875rem
+			font-family fontDisplay
+			margin-bottom 1.75rem
+
+	.rcp_registration_total
+		display none
+		table
+			color white
+
+	#rcp_subscription_levels
+		.rcp_subscription_level
+			&:not(:last-child)
+				margin-bottom 25px
+
+			label
+				padding-left 40px
+				position relative
+				span
+					display none
+				&:before
+					content ''
+					square(20px)
+					background rgba(255,255,255,.25)
+					border-radius 50%
+					position absolute
+					top 4px
+					left 0
+				&:after
+					content ''
+					square(10px)
+					background nucleus
+					border-radius 50%
+					position absolute
+					left 5px
+					top 9px
+					opacity 0
+					transition .3s all ease
+
+			input
+				visibility hidden
+				position absolute
+				top 0
+				left 0
+				&:checked + label
+					&:after
+						opacity 1
+					.rcp_level_description
+						color nucleus
+			.rcp_level_description
+				font-size unset
+				padding-left 0
+				border-left none
+				transition .3s all ease
+	
+	#rcp_registration_form
+		margin 0
+		padding 0
+		position unset !important
+
+	+above(md)
+		padding-left 58.33333%
+
+		.rcp_subscription_fieldset
+			position absolute
+			left 0
+			top 0
+			width 50%
+
+	+below(md)
+		.rcp_subscription_fieldset
+			margin-bottom 50px
+
+
+
+
+/** REPORTS **/
+.states-wrapper-col
+	+above(md)
+		top 110px
+
+.states-wrapper-wrapper
+	+above(md)
+		padding 7px
+		padding-left 0
+
+.states-wrapper
+	+above(md)
+		max-height calc(100vh - 215px)
+		&::-webkit-scrollbar
+			width 5px
+			height 0
+
+		&::-webkit-scrollbar-track
+			padding 10px
+			background rgba(0, 0, 0, .1)
+			border-radius 10px
+
+		&::-webkit-scrollbar-thumb 
+			background rgba(0, 0, 0, .25)
+			border-radius 10px
+
+
+	+below(md)
+		margin 0 mobilePadding * -1
+
+.states-list
+	.state
+		transition .3s background ease
+		&.is-active
+			color nucleus
+			font-weight 400
+
+	+above(md)
 		color terminal
+		.state
+			&:hover
+				background #e2e8f0
+			&:first-child
+				margin-top 13px
+			&:last-child
+				margin-bottom 13px
+
+	+below(md)
+		.state
+			white-space nowrap
+			margin 0 15px
+			&:first-child
+				border-left 30px solid transparent
+			&:last-child
+				border-right 30px solid transparent
+
+.filter-tags
+	&:empty
+		display none
+	&:not(:empty)
+		margin-bottom 20px
+	.tag
+		border 1px solid white
+		display inline-block
+		margin 8px 8px 8px 0
+		padding 2px 16px 4px
+		font-size 14px
+		border-radius 30px

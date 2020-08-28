@@ -7,9 +7,11 @@
 	if( have_posts() ) :
 		while( have_posts() ) : the_post(); ?>
 
-		<section>
-			<div class="container">
-				<?php the_content(); ?>
+		<section id="blank" class="min-h-screen md:-mt-20 footer-absolute bg-dark">
+			<div class="container pt-20">
+				<div class="ctas-form">
+					<?php the_content(); ?>
+				</div>
 			</div>
 		</section>
 

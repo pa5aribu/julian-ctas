@@ -1,6 +1,9 @@
 html
 	font-size 16px
 
+html[lang=en]
+	margin 0 !important
+
 body
 	color terminal
 	background linear-gradient(to bottom, nodal, nucleus)
@@ -43,17 +46,21 @@ containerGap = 6.5vw
 			.nav-inner
 				width navWidth[0]
 				box-sizing border-box
+		#content
+			width calcx('-', navWidth[0])
 
 	+between(768px, 950px, true)
 		aside
 			min-width navWidth[1]
 			.nav-inner
 				width navWidth[1]
+		#content
+			width calcx('-', navWidth[1])
 
 section
 	.section-label
 		font-size 0.875rem
-		letter-spacing 2px
+		letter-spacing 1.5px
 		line-height 2.35
 		text-transform uppercase
 	.section-title
@@ -67,6 +74,8 @@ section
 		.section-title
 			font-size 1.5rem
 			line-height 1.5
+			br
+				display none
 
 .bg-nodal + footer
 	background nodal
@@ -173,3 +182,171 @@ section
 // rounded xl
 .rounded-xl
 	border-radius 50px
+
+
+
+// CTAS form
+.input
+	color terminal
+	border-radius 50px
+	padding 0.75rem 1rem
+	font-size 0.875rem
+	background rgba(255, 255, 255, .25)
+	transition .3s all ease
+	border none
+	&:focus
+		outline none
+		background rgba(255, 255, 255, .75)
+
+.ctas-form
+
+	.blockOverlay,
+	.blockMsg
+		display none !important
+
+	.rcp_user_fieldset,
+	.rcp_card_fieldset,
+	.rcp_login_data
+		label
+			letter-spacing 0.1em
+			font-size 0.75rem
+			text-transform uppercase
+			margin-bottom .5rem
+
+	.rcp_form
+		input[type=text],
+		input[type=password],
+		select
+			@extends .input
+			width 100%
+
+		#rcp_card_exp_wrap
+			display flex
+			flex-wrap wrap
+			justify-content space-between
+			align-items center
+			label
+				width 100%
+				flex-basis 100%
+			select
+				width 45%
+
+		input[type=submit]
+			text-transform uppercase
+			letter-spacing 0.1em
+			text-align center
+			border-radius 50px
+			padding 0.75rem 1rem
+			display block
+			transition .3s all ease
+			width 100%
+			background nucleus
+			font-size 0.875rem
+			cursor pointer
+			&:hover
+				background darken(nucleus, 15)
+
+		#rcp_user_remember
+			margin 0
+			margin-right 10px
+			border none
+			position relative
+			top 1px
+
+		.rcp_lost_password
+			margin 30px 0 10px
+			text-align center
+
+
+
+// WP DATA TABLES
+.report-wrapper
+	h2
+		position relative
+		top -2px
+		line-height 1.35
+		font-size 1.875rem
+		font-family fontDisplay
+		font-weight 700
+
+	+below(md)
+		h2
+			font-size 1.5rem
+			line-height 1.5
+
+.wpDataTablesWrapper.wpDataTablesWrapper
+	margin-bottom 0
+
+.wpDataTables .dataTables_filter
+	[type=search]
+		@extends .input
+		padding .75rem 1rem !important
+		margin-left 10px
+		&:focus
+			background rgba(255,255,255,.75) !important
+
+.wpdt-c.wpdt-c .bootstrap-select > .btn-default
+	@extends .input
+	border none !important
+	background rgba(255,255,255,.25) !important
+	display inline-flex
+	align-items center
+
+.wpDataTablesWrapper.wpDataTablesWrapper .dataTables_length span.filter-option
+	margin-left 0
+
+.wpdt-c.wpdt-c .bootstrap-select > .btn-default:before
+	right 15px
+
+.wpDataTablesWrapper table.wpDataTable tr:last-child td
+	border-right none
+
+.wpDataTablesWrapper table.wpDataTable tr td:first-child
+	border-left none
+
+.wpDataTablesWrapper.wpDataTablesWrapper table.wpDataTable
+	margin-bottom 0
+
+.wpDataTablesWrapper div.wdtscroll
+	border-radius 8px
+	margin-bottom 20px
+
+.wpDataTablesWrapper table.wpDataTable > tbody > tr > td, .wpDataTablesWrapper table.wpDataTable > tfoot > tr > td
+	border-bottom none !important
+
+.wpDataTablesWrapper.wpDataTablesWrapper .dataTables_paginate
+	margin-top 0
+
+.wpDataTablesWrapper.wpDataTablesWrapper .dataTables_paginate .paginate_button
+	color white
+
+.wpDataTablesWrapper .dataTables_paginate .paginate_button.disabled:before, .wpDataTablesWrapper .dataTables_paginate .paginate_button.disabled:hover:before, .wpDataTablesWrapper .dataTables_paginate .paginate_button.disabled:active:before
+	color white !important
+
+.wpDataTablesWrapper.wpDataTablesWrapper .dataTables_paginate .paginate_button
+	min-height 1.5rem
+	border-radius 50%
+
+.wpDataTablesWrapper.wpDataTablesWrapper
+	.dataTables_paginate .paginate_button.current,
+	.dataTables_paginate .paginate_button.current:hover
+		color white !important
+		background nucleus !important
+	.dataTables_paginate .paginate_button.current
+		font-bold
+
+.wpDataTablesWrapper.wpDataTablesWrapper
+	a.DTTT_button
+		font-size .85rem
+		padding 0
+		margin-right 0
+		display inline-flex
+		align-items center
+		color white !important
+		&:not(:last-child)
+			margin-right 20px
+		&:before
+			margin-right 5px
+		span
+			position relative
+			top -2px

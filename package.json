@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
 		"tailwind": "tailwind build src/tailwind.css -o css/tailwind.css",
-		"stylus": "stylus -w -c --include-css stylus/style.styl -o style.css"
+		"stylus": "stylus -w -c -m --include-css stylus/style.styl -o style.css"
   },
   "repository": {
     "type": "git",

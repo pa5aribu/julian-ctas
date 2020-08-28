@@ -64,7 +64,7 @@
 			foreach( $items as $item ) :
 
 				$ID = $item->ID;
-				$url = get_permalink( $item->ID );
+				$url = get_permalink( $item->ID );	
 
 				if($args['download']) {
 					$url = get_field('report_file', $item->ID);
@@ -102,13 +102,13 @@
 					?>">
 						<div class="mb-2 text-xs tracking-wider uppercase opacity-75"><?php 
 							$category = get_the_category($item->ID);
-							($args['post_type'] == 'professionals') ? print $category[0]->name : print get_the_date();
+							($args['post_type'] == 'professionals') ? print $category[0]->name : print get_the_date('', $item->ID);;
 						?></div>
 						<div class="font-semibold md:text-xl font-display"><?php echo $item->post_title ?></div>
 						<?php
 							if(!$thumbnail) {
-								echo '<p class="mt-4">'. get_the_excerpt($item) .'</p>';
-								echo '<p class="absolute bottom-0 left-0 pb-5 pl-5 text-xs font-bold tracking-wider uppercase font-body">read more</p>';
+								echo '<p class="mt-2 md:mt-4">'. get_the_excerpt($item) .'</p>';
+								echo '<p class="bottom-0 left-0 mt-6 text-xs font-bold tracking-wider uppercase md:pb-5 md:pl-5 md:absolute font-body">read more</p>';
 							}
 
 							if($args['download']) {

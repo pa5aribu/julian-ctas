@@ -6,8 +6,7 @@
 	// disable editor on pages
 	function disable_editor_pages() {
 		$post_types = array(
-			// 'page',
-			// 'projects'
+			'page',
 		);
 
 		foreach( $post_types as $post_type ) :
@@ -38,8 +37,9 @@
 		$dir = get_template_directory_uri();
 		wp_enqueue_style( 'tailwind', $dir . '/css/tailwind.css' );
 		wp_enqueue_style( 'style', $dir . '/style.css' );
+		wp_enqueue_style( 'scrollbar', 'https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css' );
 
-		/* wp_enqueue_script( 'indicators', $dir . '/js/debug.addIndicators.min.js', '', false, true ); */
+		wp_enqueue_script( 'scrollbar',  'https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js', '', false, true );
 		wp_enqueue_script( 'vendors', $dir . '/js/vendors.js', '', false, true );
 		/* wp_enqueue_script( 'js-utils', $dir . '/js/utils.js', '', false, true ); */
 		wp_enqueue_script( 'main', $dir . '/js/main.js', '', false, true );
